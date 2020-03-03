@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, QMenu
-
+from PyQt5.QtCore import QCoreApplication
 class Exam(QMainWindow):
     # Qwidget에 해당하는 상위 객체를 생성
     def __init__(self):
@@ -24,9 +24,11 @@ class Exam(QMainWindow):
         menu_third.setStatusTip('세번째 메뉴를 봅니다.')
         # 메뉴 객체 생성
         file_exit = QAction('Exit', self) 
+        # 단축기등록
         file_exit.setShortcut('Ctrl+Q')
         file_exit.setStatusTip('누르면 종료됩니다.')
 
+        file_exit.triggered.connect(QCoreApplication.instance().quit)
 
         file_new = QMenu('New', self)
         file_new.setStatusTip('테스트입니다.')
@@ -43,6 +45,7 @@ class Exam(QMainWindow):
         
         self.resize(450, 400)
         self.show()
+
 
 
 
