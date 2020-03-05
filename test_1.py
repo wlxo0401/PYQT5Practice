@@ -48,7 +48,7 @@ class Sub(QWidget):
 class Form(QMainWindow):
     def __init__(self):
         super(Form, self).__init__()
-        self.setWindowTitle("구독과 좋아요!")
+        self.setWindowTitle("안녕하세요")
         self.setCentralWidget(Sub())
 
 
